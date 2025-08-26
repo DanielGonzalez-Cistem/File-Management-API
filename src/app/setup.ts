@@ -35,7 +35,7 @@ export const useSetupAppServer = (): IGSetupServer => {
     /**
      * Asignación de puerto para publicación de servicios en **App**.
      */
-    const APP_PORT: number = portEnvs.APP_PORT;
+    const APP_PORT: number = portEnvs.PORT;
 
     /**
      * Publicación de recursos del servidor **App**.
@@ -95,6 +95,7 @@ export const useSetupAppServer = (): IGSetupServer => {
         const BASE_PATH: string = '/api/v1/app';
 
         //* Invoicación de servicios
+        app.use(`${BASE_PATH}`, repositoryRouters('vehicle'));
         app.use(`${BASE_PATH}`, repositoryRouters('welcome'));
 
         //* Controlar peticiones desconocidas

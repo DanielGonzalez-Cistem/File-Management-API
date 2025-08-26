@@ -1,8 +1,7 @@
 import { rootEnvs } from '@env/handler';
 import { startJobs } from '@jobs/handler';
 
-import { useSetupAppServer } from './app/setup';
-import { useSetupAuthServer } from './auth/setup';
+import { useSetupAppServer } from './app/setup';;
 
 /**
  * Inicio de aplicación **REST API**.
@@ -15,10 +14,8 @@ import { useSetupAuthServer } from './auth/setup';
 const mainApp = (): void => {
 
     const { deploy: deployServerApp } = useSetupAppServer();
-    const { deploy: deployServerAuth } = useSetupAuthServer();
 
     deployServerApp();
-    deployServerAuth();
 
     // startJobs(); //? Ejecución de rutinas automáticas
 
