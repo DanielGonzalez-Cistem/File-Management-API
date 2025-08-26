@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "b4ac9588-c566-4910-960a-2d63f40c6103",
+		"name": "File-Management-API",
+		"description": "Colección de servicios REST API para la gestión de archivos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24908554"
+	},
+	"item": [
+		{
+			"name": "Prueba Conexión APP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_SERVER }}/welcome",
+					"host": [
+						"{{API_SERVER }}"
+					],
+					"path": [
+						"welcome"
+					]
+				},
+				"description": "#### Descripción\n\nServicio que se encarga de realizar una prueba de conexión al servidor."
+			},
+			"response": []
+		},
+		{
+			"name": "Descargar Plantilla de Vehículos CSV",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_SERVER }}/download_template",
+					"host": [
+						"{{API_SERVER }}"
+					],
+					"path": [
+						"download_template"
+					]
+				},
+				"description": "#### Descripción\n\nServicio que se encarga de solicitar la generación de un nuevo template de vehículos en formato CSV.\n\n> El MIME Type de un archivo **CSV** es `text/csv` (ej: `data:text/csv;base64,XXXXXX`),"
+			},
+			"response": []
+		},
+		{
+			"name": "Edición Masiva de Vehiculos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "Archivo CSV (requerido).",
+							"type": "file",
+							"src": "postman-cloud:///1f082a20-e102-4fa0-9fb2-9cf3fb6065ed"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{API_SERVER }}/upload_file/mass_edition_vehicles",
+					"host": [
+						"{{API_SERVER }}"
+					],
+					"path": [
+						"upload_file",
+						"mass_edition_vehicles"
+					]
+				},
+				"description": "#### Descripción\n\nServicio que se encarga de cargar un archivo CSV con los vehículos a editar."
+			},
+			"response": [
+				{
+					"name": "B08: Archivo (requerido)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "Archivo CSV (requerido).",
+									"type": "file",
+									"src": "postman-cloud:///1f082a20-e102-4fa0-9fb2-9cf3fb6065ed",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_SERVER }}/upload_file/mass_edition_vehicles",
+							"host": [
+								"{{API_SERVER }}"
+							],
+							"path": [
+								"upload_file",
+								"mass_edition_vehicles"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "109"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6d-AitEluMRVDkttOaevlvmohOChZI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Aug 2025 17:42:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"status_code\": 400,\n    \"error\": {\n        \"code\": \"B08\",\n        \"message\": \"El archivo es requerido\",\n        \"details\": null\n    }\n}"
+				},
+				{
+					"name": "B08: Archivo Desconocido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "Archivo CSV (requerido).",
+									"type": "file",
+									"src": "/C:/Users/danie/Downloads/CISTEM Gana +.svg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_SERVER }}/upload_file/mass_edition_vehicles",
+							"host": [
+								"{{API_SERVER }}"
+							],
+							"path": [
+								"upload_file",
+								"mass_edition_vehicles"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "125"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7d-TPgPcGYB2E48cogBKq5EXhKWGUo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Aug 2025 17:50:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"status_code\": 400,\n    \"error\": {\n        \"code\": \"B08\",\n        \"message\": \"Tipo de archivo no permitido (solo CSV)\",\n        \"details\": null\n    }\n}"
+				}
+			]
+		}
+	]
+}
