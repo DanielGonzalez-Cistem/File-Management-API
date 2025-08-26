@@ -7,5 +7,4 @@
 
 Código fuente de la aplicación en calidad de backend, para la gestión de archivos en una REST API construido con Node JS y TypeScript.
 
----
 &copy; **[DanielGonzalez-Cistem](https://github.com/DanielGonzalez-Cistem)**, 2025.
