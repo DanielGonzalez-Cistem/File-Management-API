@@ -120,3 +120,25 @@ export const validateCurrentDate = (value: string | number): boolean => {
     return date <= currentDate;
 
 };
+
+/**
+ * Verifica la integridad de un archivo.
+ * 
+ * @function
+ * @name checkFile
+ * @returns `true` si todo es correcto, `false` si el MIMEType recibido no es válido o el archivo no existe.
+ */
+export const checkFile = (value: any, { req }: Meta): boolean => {
+
+    if (!req.file) {
+        throw new Error('El archivo es requerido');
+    }
+
+    const allowedMimes = ["text/csv"];
+
+    if (!allowedMimes.includes(req.file.mimetype)) {
+        throw new Error("Tipo de archivo no permitido (solo CSV)");
+    }
+
+    return true;
+}

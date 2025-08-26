@@ -13,3 +13,17 @@ interface IColumn {
     id: string;
     title: string;
 }
+
+/**
+ * Interfaz que retorna el contenido de un CSV de vehiculo.
+ */
+export interface CSVRow {
+    Editar: string;
+    VehiculoID: string;
+    NumeroEconomico?: string;
+    ProductoAutorizado?: string;
+    TipoLimite?: string;
+    Diario?: string;
+    Semanal?: string;
+    Mensul?: string;
+}

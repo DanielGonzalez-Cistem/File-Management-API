@@ -1,26 +1,29 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { DownloadTemplateVehicleController } from './download.template.vehicle.controller';
+import { UploadFileVehiclesController } from './upload.file.vehicles.controller';
 
 /**
   * Definición de tipos de controladores.
  */
 type TypeControllers = 
-    'downloadTemplate'
+  'downloadTemplate' |
+  'uploadVehicles'
 ;
 
 /**
   * Definición dinámica de los controladores en **Vehículos**.
  */
 type TypeAppControllers = {
-    [K in TypeControllers]: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  [K in TypeControllers]: (req: Request, res: Response, next: NextFunction) => Promise<void>;
 }
 
 /**
   * Centralización de controladores de **Vehículos**.
  */
 const controllers: TypeAppControllers = {
-    downloadTemplate: DownloadTemplateVehicleController
+  downloadTemplate: DownloadTemplateVehicleController,
+  uploadVehicles: UploadFileVehiclesController,
 }
 
 /**
