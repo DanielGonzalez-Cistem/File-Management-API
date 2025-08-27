@@ -15,7 +15,7 @@ export const DownloadTemplateVehicleExcelService = async () => {
     /**
      * Construcción del nombre del archivo
      */
-    const fileName = `${DateTime.now().toFormat("yyyyLLdd_HHmmss")}-EDITAR_VEHICULOS.csv`;
+    const fileName = `${DateTime.now().toFormat("yyyyLLdd_HHmmss")}-EDITAR_VEHICULOS.xlsx`;
 
     /**
      * Inicialización de instancia para trabajar con **Excel**.
