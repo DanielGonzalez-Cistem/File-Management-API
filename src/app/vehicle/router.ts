@@ -28,8 +28,9 @@ export const VehicleRouter = (): Router => {
      * Centralización de rutas del enrutador **Vehículo**.
     */
     const paths = {
-        downloadTemplate: '/download_template',
-        uploadVehicles: '/upload_file/mass_edition_vehicles',
+        downloadTemplateCsv: '/download_template',
+        downloadTemplateXls: '/download_template_xls',
+        uploadVehicles     : '/upload_file/mass_edition_vehicles',
     };
 
     /**
@@ -41,7 +42,7 @@ export const VehicleRouter = (): Router => {
      * @memberof vehicleRouter
     */
     vehicleRouter.get(
-        paths.downloadTemplate,
+        paths.downloadTemplateCsv,
         repositoryControllers('downloadTemplate')
     );
 
@@ -60,6 +61,19 @@ export const VehicleRouter = (): Router => {
             ...uploadFileVehicleRule
         ],
         repositoryControllers('uploadVehicles')
+    );
+
+    /**
+     * * Servicio que genera un template experimental en formato XLSM.
+     * 
+     * @function
+     * @name GET /test_template_xlsm
+     * @path {GET} /test_template_xlsm
+     * @memberof vehicleRouter
+    */
+    vehicleRouter.get(
+        paths.downloadTemplateXls,
+        repositoryControllers('downloadTemplateExcel')
     );
 
     return vehicleRouter;

@@ -1,13 +1,15 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { DownloadTemplateVehicleController } from './download.template.vehicle.controller';
+import { DownloadTemplateVehicleExcelController } from './download.template.vehicle.excel.controller';
 import { UploadFileVehiclesController } from './upload.file.vehicles.controller';
 
 /**
   * Definición de tipos de controladores.
  */
 type TypeControllers = 
-  'downloadTemplate' |
+  'downloadTemplate'      |
+  'downloadTemplateExcel' |
   'uploadVehicles'
 ;
 
@@ -23,6 +25,7 @@ type TypeAppControllers = {
  */
 const controllers: TypeAppControllers = {
   downloadTemplate: DownloadTemplateVehicleController,
+  downloadTemplateExcel: DownloadTemplateVehicleExcelController,
   uploadVehicles: UploadFileVehiclesController,
 }
 
