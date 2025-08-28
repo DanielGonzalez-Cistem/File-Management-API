@@ -33,12 +33,14 @@ export const selectorTypeLimitValidator = {
  */
 export const numberValidator = {
     type: 'whole',         // número entero
-    operator: 'greaterThanOrEqual',
+    operator: 'between',
     formula1: '1',         // mínimo permitido
+    formula2: '999999',         // mínimo permitido
     showErrorMessage: true,
     errorTitle: 'Entrada no válida',
     error: 'Debe ingresar un número entero positivo (>= 1)',
     showInputMessage: true,
     promptTitle: 'Sólo números',
     prompt: 'Ingrese un número entero positivo',
+    allowBlank: false
 };
