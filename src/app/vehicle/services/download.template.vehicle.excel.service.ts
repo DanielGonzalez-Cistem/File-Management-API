@@ -1,7 +1,7 @@
 import ExcelJS, { Worksheet } from 'exceljs';
 import { DateTime } from 'luxon';
 
-import { selectorTypeLimitValidator, selectorValidator } from '../helpers/donwload_template/validations';
+import { selectorTypeLimitValidator, selectorValidator, numberValidator } from '../helpers/donwload_template/validations';
 import { vehiclesDB } from '../utils/db.vehicles';
 
 export const DownloadTemplateVehicleExcelService = async () => {
@@ -60,6 +60,11 @@ export const DownloadTemplateVehicleExcelService = async () => {
 
     //? Columnas con selector de "IMPORTE" o "LITRO"
     (ws as any).dataValidations.add(`I2:I${lastRow}`, selectorTypeLimitValidator);
+
+    //? Columnas con valor numérico de "DIARIO", "SEMANAL" y "MENSUAL"
+    (ws as any).dataValidations.add(`J2:J${lastRow}`, numberValidator);
+    (ws as any).dataValidations.add(`K2:K${lastRow}`, numberValidator);
+    (ws as any).dataValidations.add(`L2:L${lastRow}`, numberValidator);
 
     //? Exportar como base64
     const buffer = await wb.xlsx.writeBuffer();

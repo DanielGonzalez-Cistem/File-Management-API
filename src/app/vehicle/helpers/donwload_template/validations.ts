@@ -27,3 +27,18 @@ export const selectorTypeLimitValidator = {
     promptTitle: 'Seleccione',
     prompt: 'Elija "IMPORTE" o "LITROS" del menú.',
 }
+
+/**
+ * Definición de reglas para ls columnas **Diario**, **Semanal** y **Mensual**.
+ */
+export const numberValidator = {
+    type: 'whole',         // número entero
+    operator: 'greaterThanOrEqual',
+    formula1: '1',         // mínimo permitido
+    showErrorMessage: true,
+    errorTitle: 'Entrada no válida',
+    error: 'Debe ingresar un número entero positivo (>= 1)',
+    showInputMessage: true,
+    promptTitle: 'Sólo números',
+    prompt: 'Ingrese un número entero positivo',
+};
